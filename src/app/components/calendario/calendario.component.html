@@ -1,18 +1,18 @@
 <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <form>
+        <form [formGroup]="calanderForm" (ngSubmit) = "onSubmit()">
           <div class="form-group">
             <label for="exampleInputDia">Dia</label>
-            <input type="text" class="form-control" id="exampleInputDia" aria-describedby="diaHelp" placeholder="Ingresar Dia">
+            <input formControlName="dia" type="text" class="form-control" id="exampleInputDia" aria-describedby="diaHelp" placeholder="Ingresar Dia">
           </div>
-          <button type="submit" class="btn btn-primary" [routerLink]="['/reservar/opciones']">Seleccionar</button>
+          <button type="submit" class="btn btn-primary" >Seleccionar</button>
         </form>
       </div>
       <div class="col-md-6">
         <div class="calendar">
           <div class="header">
-            <h1>May 2023</h1>
+            <h1>May 2023 </h1>
           </div>
           <table>
             <thead>

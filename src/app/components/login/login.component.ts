@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { SweetAlertArrayOptions } from 'sweetalert2';
 import Swal from 'sweetalert2';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +17,10 @@ export class LoginComponent {
     contrasenia: ''
   });
 
-  constructor(private formBuilder: FormBuilder) {
-
-  }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   onSubmit(): void{
     // Se obtiene el objeto usuarios desde el almacenamiento local (si no existe, se inicializa como un objeto vacío)
@@ -49,18 +51,29 @@ export class LoginComponent {
               'success'
             )
           }else{
+            localStorage.setItem("actual", "");
             console.log("login incorrecto");
             Swal.fire(
               'Error!',
               'contraseña incorrecto',
               'error'
             )
+            
+
           }
           // Se podría mostrar una alerta aquí
           break;
       }
     }
-    
+    if(existe == 0){
+      localStorage.setItem("actual", "");
+      Swal.fire(
+        'Error!',
+        'usuario no existe',
+        'error'
+      )
+    }
+    this.router.navigate(['/reservar/calendario']);
   }
   
 

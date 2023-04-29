@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar',
@@ -17,9 +18,10 @@ export class RegistrarComponent {
   });
 
   // El constructor recibe una instancia de FormBuilder para construir el formulario
-  constructor(private formBuilder: FormBuilder) {
-
-  }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   // Esta función se ejecuta cuando el formulario se envía
   onSubmit(): void{
@@ -45,6 +47,7 @@ export class RegistrarComponent {
             'Ya existe el usuario!',
             'info'
           )
+          localStorage.setItem("actual", "");
           break;
       }
     }
@@ -58,7 +61,7 @@ export class RegistrarComponent {
         'success'
       )
     }
-    
+    this.router.navigate(['/reservar/calendario']);
   }
 
 }

@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'acerca-de', component: AcercaDeComponent },
   { path: 'reservar/calendario', component: CalendarioComponent },
   { path: 'reservar/confirmar', component: DatosUsuarioComponent },
-  { path: 'reservar/opciones', component: ReservarComponent },
+  { path: 'reservar/opciones/:id', component: ReservarComponent },
   { path: 'reservar/reservaciones', component: VuelosReservadosComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registrar', component: RegistrarComponent },
