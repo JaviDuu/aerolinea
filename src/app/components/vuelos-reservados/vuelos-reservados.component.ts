@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./vuelos-reservados.component.css']
 })
 export class VuelosReservadosComponent {
-
+  imprimir: any[] = JSON.parse(localStorage.getItem('imprimir') || '[]');
 }
+
